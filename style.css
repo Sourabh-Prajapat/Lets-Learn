@@ -1,0 +1,2663 @@
+/* =====================================================
+GLOBAL
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
+}
+
+body {
+    background: #f4f7fc;
+    color: #172033;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+NAVIGATION
+===================================================== */
+
+.navbar {
+    width: 100%;
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 5%;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-bottom: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav_logo a {
+    text-decoration: none;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #4f46e5,
+            #9333ea
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav_links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav_links a {
+    text-decoration: none;
+
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.nav_links a:hover {
+    color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.menu_btn {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 28px;
+    color: #172033;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+HEADER
+===================================================== */
+
+.title {
+    min-height: 180px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 45px;
+
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(
+            circle at 15% 50%,
+            rgba(59, 130, 246, 0.30),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 85% 50%,
+            rgba(139, 92, 246, 0.25),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #eaf3ff,
+            #eef0ff
+        );
+
+    border-bottom: 1px solid #d7e2f3;
+
+    box-shadow:
+        0 8px 30px rgba(43, 74, 120, 0.12);
+}
+
+.brand_text {
+    text-align: center;
+}
+
+.title h1 {
+    font-size: clamp(36px, 5vw, 52px);
+
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #4f46e5,
+            #9333ea
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand_text p {
+    margin-top: 8px;
+
+    color: #475569;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.brand_text span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 14px;
+}
+
+.title img {
+    width: 110px;
+    height: 90px;
+
+    object-fit: cover;
+
+    border-radius: 18px;
+
+    border: 2px solid #bfdbfe;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.20);
+}
+
+
+/* =====================================================
+COMMON SECTION CONTAINERS
+===================================================== */
+
+.test_container,
+.gkgs_container,
+.science_container,
+.staticgk_container,
+.english_container,
+.current_affairs_container,
+.daily_learning_container,
+.quiz_container,
+.about_container {
+
+    width: min(
+        1200px,
+        calc(100% - 30px)
+    );
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 35px rgba(15, 23, 42, 0.08);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+SECTION DECORATION
+===================================================== */
+
+.test_container::before,
+.gkgs_container::before,
+.science_container::before,
+.staticgk_container::before,
+.english_container::before,
+.current_affairs_container::before,
+.daily_learning_container::before,
+.quiz_container::before,
+.about_container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    top: -120px;
+    right: -70px;
+
+    border-radius: 50%;
+
+    background: #60a5fa;
+
+    filter: blur(80px);
+
+    opacity: 0.12;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+SECTION TITLES
+===================================================== */
+
+.sub_title {
+
+    font-size: clamp(
+        25px,
+        4vw,
+        31px
+    );
+
+    margin-bottom: 25px;
+
+    padding-left: 15px;
+
+    border-left: 5px solid #2563eb;
+
+    color: #172033;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.section_description {
+    color: #64748b;
+
+    margin-top: -15px;
+    margin-bottom: 25px;
+
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+PRACTICE
+===================================================== */
+
+.previous_years {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+}
+
+.py_link {
+
+    width: 260px;
+    min-height: 140px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    text-decoration: none;
+
+    border-radius: 18px;
+
+    border: 1px solid #60a5fa;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #bfdbfe
+        );
+
+    box-shadow:
+        0 8px 20px rgba(
+            37,
+            99,
+            235,
+            0.12
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.py_link h3 {
+
+    color: #172033;
+
+    font-size: 21px;
+
+    text-align: center;
+
+    line-height: 1.3;
+}
+
+.py_link p {
+
+    color: #475569;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    margin-top: 8px;
+
+    line-height: 1.4;
+}
+
+.py_link:hover {
+
+    transform: translateY(-8px);
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 15px 30px rgba(
+            37,
+            99,
+            235,
+            0.22
+        );
+}
+
+
+/* =====================================================
+GENERAL STUDIES
+===================================================== */
+
+.gkgs {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.gkgs_link {
+
+    width: 100%;
+    height: 160px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 20px;
+
+    text-decoration: none;
+
+    border-radius: 18px;
+
+    border: 2px solid rgba(
+        255,
+        255,
+        255,
+        0.8
+    );
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow:
+        0 8px 25px rgba(
+            15,
+            23,
+            42,
+            0.15
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.gkgs_link::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.55)
+        );
+
+    transition:
+        background 0.3s ease;
+}
+
+.gkgs_link h3 {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size: 23px;
+
+    text-align: center;
+
+    line-height: 1.2;
+
+    text-shadow:
+        2px 2px 7px rgba(
+            0,
+            0,
+            0,
+            0.9
+        );
+}
+
+.gkgs_link:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: white;
+
+    box-shadow:
+        0 18px 35px rgba(
+            15,
+            23,
+            42,
+            0.25
+        );
+}
+
+.gkgs_link:hover::before {
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0.40)
+        );
+}
+
+
+/* =====================================================
+GENERAL STUDIES IMAGES
+===================================================== */
+
+.history .gkgs_link {
+    background-image:
+        url("./assets/history.jpg");
+}
+
+.geo .gkgs_link {
+    background-image:
+        url("./assets/geography.jpg");
+}
+
+.polity .gkgs_link {
+    background-image:
+        url("./assets/polity.jpg");
+}
+
+.eco .gkgs_link {
+    background-image:
+        url("./assets/economics.jpg");
+}
+
+
+/* =====================================================
+SCIENCE
+===================================================== */
+
+.sci {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.sci_part {
+    min-width: 0;
+}
+
+.sci_link {
+
+    width: 100%;
+    height: 160px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 20px;
+
+    text-decoration: none;
+
+    border-radius: 18px;
+
+    border: 2px solid rgba(
+        255,
+        255,
+        255,
+        0.8
+    );
+
+    background-size: cover;
+    background-position: center;
+
+    box-shadow:
+        0 8px 25px rgba(
+            15,
+            23,
+            42,
+            0.15
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.sci_link::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.55)
+        );
+
+    transition:
+        background 0.3s ease;
+}
+
+.sci_link h3 {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    font-size: 23px;
+
+    text-align: center;
+
+    text-shadow:
+        2px 2px 7px black;
+}
+
+.sci_link:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: white;
+
+    box-shadow:
+        0 18px 35px rgba(
+            15,
+            23,
+            42,
+            0.25
+        );
+}
+
+.sci_link:hover::before {
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0.40)
+        );
+}
+
+
+/* =====================================================
+SCIENCE IMAGES
+===================================================== */
+
+.biology .sci_link {
+
+    background-image:
+        url("./assets/biology.jpg");
+}
+
+.physics .sci_link {
+
+    background-image:
+        url("./assets/physics.jpg");
+}
+
+.chemistry .sci_link {
+
+    background-image:
+        url("./assets/chemistry.jpg");
+}
+
+
+/* =====================================================
+STATIC GK
+===================================================== */
+
+.staticgk {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 5px;
+}
+
+.stgk_link {
+
+    width: 280px;
+    height: 160px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 20px;
+
+    text-decoration: none;
+
+    border-radius: 18px;
+
+    border: 2px solid rgba(
+        255,
+        255,
+        255,
+        0.8
+    );
+
+    background-image:
+
+        linear-gradient(
+            rgba(0, 0, 0, 0.30),
+            rgba(0, 0, 0, 0.55)
+        ),
+
+        url("./assets/staticgk.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    box-shadow:
+        0 8px 25px rgba(
+            15,
+            23,
+            42,
+            0.15
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.stgk_link h3 {
+
+    color: white;
+
+    font-size: 23px;
+
+    text-align: center;
+
+    text-shadow:
+        2px 2px 7px black;
+}
+
+.stgk_link:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: white;
+
+    box-shadow:
+        0 18px 35px rgba(
+            15,
+            23,
+            42,
+            0.25
+        );
+}
+
+
+/* =====================================================
+ENGLISH
+===================================================== */
+
+.english {
+
+    display: flex;
+
+    justify-content: center;
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.english_part {
+
+    width: 260px;
+    min-width: 0;
+}
+
+.english_link {
+
+    width: 100%;
+    height: 160px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 20px;
+
+    text-decoration: none;
+
+    border-radius: 18px;
+
+    border: 2px solid #fed7aa;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7ed,
+            #ffedd5
+        );
+
+    box-shadow:
+        0 8px 25px rgba(
+            234,
+            88,
+            12,
+            0.10
+        );
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.english_link h3 {
+
+    color: #7c2d12;
+
+    font-size: 22px;
+
+    text-align: center;
+
+    line-height: 1.2;
+}
+
+.english_link:hover {
+
+    transform:
+        translateY(-8px)
+        scale(1.02);
+
+    border-color: #f97316;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffedd5,
+            #fed7aa
+        );
+
+    box-shadow:
+        0 15px 35px rgba(
+            234,
+            88,
+            12,
+            0.20
+        );
+}
+
+
+/* =====================================================
+CURRENT AFFAIRS
+===================================================== */
+
+.section_heading {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.ca_badge,
+.daily_date_badge {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    padding: 9px 15px;
+
+    border-radius: 50px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+    box-shadow:
+        0 5px 15px rgba(
+            37,
+            99,
+            235,
+            0.20
+        );
+}
+
+.current_affairs_list {
+
+    display: grid;
+
+    gap: 18px;
+}
+
+.current_affair {
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-left: 5px solid #2563eb;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.current_affair:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+}
+
+.ca_date {
+
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.current_affair h3 {
+
+    color: #172033;
+
+    font-size: 19px;
+
+    margin-bottom: 10px;
+
+    line-height: 1.4;
+}
+
+.current_affair p {
+
+    color: #475569;
+
+    line-height: 1.65;
+
+    font-size: 15px;
+}
+
+.ca_category {
+
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.ca_footer {
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid #e2e8f0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+DAILY LEARNING
+===================================================== */
+
+.learning_category {
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+}
+
+.learning_category_title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.learning_icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #e0e7ff
+        );
+
+    font-size: 23px;
+}
+
+.learning_category_title h3 {
+
+    color: #172033;
+
+    font-size: 21px;
+
+    margin-bottom: 4px;
+}
+
+.learning_category_title p {
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+.learning_list {
+
+    display: grid;
+
+    gap: 12px;
+}
+
+.learning_item {
+
+    padding: 17px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 14px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.learning_item:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+}
+
+.learning_number {
+
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    margin-right: 10px;
+
+    border-radius: 9px;
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+    font-weight: 800;
+
+    font-size: 13px;
+}
+
+.learning_word {
+
+    color: #172033;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.learning_meaning {
+
+    margin-top: 9px;
+
+    color: #334155;
+
+    font-size: 15px;
+
+    line-height: 1.55;
+}
+
+.learning_hindi {
+
+    margin-top: 6px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.learning_example {
+
+    margin-top: 8px;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+.learning_extra {
+
+    margin-top: 8px;
+
+    color: #475569;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+.learning_label {
+
+    font-weight: 700;
+
+    color: #1e40af;
+}
+
+
+/* =====================================================
+DAILY QUIZ
+===================================================== */
+
+.quiz_tabs {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+
+    flex-wrap: wrap;
+}
+
+.quiz_tab {
+
+    border: 1px solid #cbd5e1;
+
+    background: white;
+
+    color: #334155;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.quiz_tab span {
+
+    display: block;
+
+    margin-top: 3px;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    color: #64748b;
+}
+
+.quiz_tab:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #2563eb;
+}
+
+.quiz_tab.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    border-color: #2563eb;
+}
+
+.quiz_tab.active span {
+
+    color: #dbeafe;
+}
+
+.quiz_box {
+
+    max-width: 850px;
+
+    margin: 0 auto;
+}
+
+.quiz_question {
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    margin-bottom: 20px;
+}
+
+.quiz_question_number {
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+.quiz_category {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #e0e7ff;
+
+    color: #3730a3;
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+.quiz_question h3 {
+
+    color: #172033;
+
+    font-size: 19px;
+
+    line-height: 1.5;
+
+    margin-bottom: 18px;
+}
+
+.quiz_options {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.quiz_option {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    border: 1px solid #cbd5e1;
+
+    background: white;
+
+    color: #334155;
+
+    font-size: 15px;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.quiz_option:hover {
+
+    border-color: #2563eb;
+
+    background: #eff6ff;
+
+    transform: translateY(-2px);
+}
+
+.quiz_option.selected {
+
+    background: #dbeafe;
+
+    border-color: #2563eb;
+
+    color: #1e40af;
+
+    box-shadow:
+        0 0 0 2px rgba(
+            37,
+            99,
+            235,
+            0.12
+        );
+}
+
+.quiz_option:disabled {
+
+    cursor: default;
+
+    transform: none;
+}
+
+.quiz_option.correct {
+
+    background: #dcfce7;
+
+    border-color: #22c55e;
+
+    color: #166534;
+}
+
+.quiz_option.wrong {
+
+    background: #fee2e2;
+
+    border-color: #ef4444;
+
+    color: #991b1b;
+}
+
+
+/* =====================================================
+QUIZ PROGRESS
+===================================================== */
+
+.quiz_progress {
+
+    margin-bottom: 20px;
+
+    padding: 12px 15px;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    color: #1e40af;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+SUBMIT QUIZ BUTTON
+===================================================== */
+
+.quiz_submit_container {
+
+    margin-top: 25px;
+
+    text-align: center;
+
+    padding: 10px 0 5px;
+}
+
+.quiz_submit {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    padding: 14px 30px;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 20px rgba(
+            37,
+            99,
+            235,
+            0.22
+        );
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.quiz_submit:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(
+            37,
+            99,
+            235,
+            0.28
+        );
+}
+
+.quiz_submit:disabled {
+
+    cursor: default;
+
+    opacity: 0.55;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+.quiz_submit_message {
+
+    margin-top: 10px;
+
+    color: #dc2626;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+QUIZ ANSWER / RESULT
+===================================================== */
+
+.quiz_answer {
+
+    margin-top: 15px;
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+
+    color: #1e40af;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+    border: 1px solid #bfdbfe;
+}
+
+.quiz_answer strong {
+
+    color: #1e3a8a;
+}
+
+.quiz_result_status {
+
+    margin-bottom: 12px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #bfdbfe;
+
+    font-size: 15px;
+
+    font-weight: 800;
+}
+
+.quiz_result_status.correct_status {
+
+    color: #166534;
+}
+
+.quiz_result_status.wrong_status {
+
+    color: #991b1b;
+}
+
+.quiz_result_line {
+
+    margin-top: 6px;
+}
+
+.quiz_option_explanations {
+
+    margin-top: 14px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #dbeafe;
+}
+
+.quiz_option_explanations_title {
+
+    color: #1e3a8a;
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+.quiz_option_explanation {
+
+    margin-top: 7px;
+
+    padding: 9px 11px;
+
+    border-radius: 8px;
+
+    background: white;
+
+    border: 1px solid #dbeafe;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+}
+
+.quiz_option_explanation.correct_option_explanation {
+
+    border-left: 4px solid #22c55e;
+}
+
+.quiz_option_explanation.selected_option_explanation {
+
+    border-left: 4px solid #2563eb;
+}
+
+.quiz_option_explanation.wrong_option_explanation {
+
+    border-left: 4px solid #ef4444;
+}
+
+.quiz_score {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eff6ff,
+            #eef2ff
+        );
+
+    color: #1e3a8a;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    border: 1px solid #c7d2fe;
+}
+
+.quiz_score_details {
+
+    margin-top: 8px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #475569;
+}
+
+.quiz_unanswered {
+
+    background: #fef3c7;
+
+    border-color: #f59e0b;
+
+    color: #92400e;
+}
+
+
+/* =====================================================
+ABOUT
+===================================================== */
+
+.about_content {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.about_card {
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc,
+            #f1f5f9
+        );
+
+    border: 1px solid #e2e8f0;
+}
+
+.about_card h3 {
+
+    color: #1e40af;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+}
+
+.about_card p {
+
+    color: #475569;
+
+    line-height: 1.65;
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+LOADING
+===================================================== */
+
+.loading {
+
+    padding: 25px;
+
+    text-align: center;
+
+    color: #64748b;
+}
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+.footer {
+
+    margin-top: 60px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #172554,
+            #1e1b4b
+        );
+
+    color: white;
+}
+
+.footer_content {
+
+    width: min(
+        1200px,
+        calc(100% - 30px)
+    );
+
+    margin: auto;
+
+    padding: 50px 0;
+
+    display: grid;
+
+    grid-template-columns:
+        2fr 1fr 1.5fr;
+
+    gap: 50px;
+}
+
+.footer h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+.footer h3 {
+
+    font-size: 17px;
+
+    margin-bottom: 15px;
+}
+
+.footer_brand p {
+
+    color: #cbd5e1;
+
+    margin-bottom: 8px;
+}
+
+.footer_brand span {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+.footer_links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.footer_links a {
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: color 0.2s ease;
+}
+
+.footer_links a:hover {
+
+    color: white;
+}
+
+.footer_info p {
+
+    color: #cbd5e1;
+
+    line-height: 1.6;
+
+    font-size: 14px;
+}
+
+.footer_bottom {
+
+    border-top: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.12
+    );
+
+    text-align: center;
+
+    padding: 18px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .nav_links {
+        gap: 12px;
+    }
+
+    .nav_links a {
+        font-size: 11px;
+    }
+
+    .gkgs {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .sci {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .about_content {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .footer_content {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+}
+
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    /* Navigation */
+
+    .navbar {
+
+        padding: 12px 18px;
+    }
+
+    .menu_btn {
+
+        display: block;
+    }
+
+    .nav_links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 65px;
+        left: 0;
+
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background: white;
+
+        border-top: 1px solid #e2e8f0;
+
+        box-shadow:
+            0 10px 20px rgba(
+                15,
+                23,
+                42,
+                0.10
+            );
+    }
+
+    .nav_links.active {
+
+        display: flex;
+    }
+
+    .nav_links a {
+
+        padding: 15px 20px;
+
+        border-bottom: 1px solid #f1f5f9;
+
+        font-size: 14px;
+    }
+
+
+    /* Header */
+
+    .title {
+
+        min-height: auto;
+
+        flex-direction: column;
+
+        gap: 15px;
+
+        padding: 28px 15px;
+    }
+
+    .title h1 {
+
+        font-size: 36px;
+
+        text-align: center;
+    }
+
+    .brand_text p {
+
+        font-size: 15px;
+    }
+
+    .brand_text span {
+
+        font-size: 12px;
+    }
+
+    .title img {
+
+        width: 90px;
+
+        height: 75px;
+    }
+
+
+    /* Containers */
+
+    .test_container,
+    .gkgs_container,
+    .science_container,
+    .staticgk_container,
+    .english_container,
+    .current_affairs_container,
+    .daily_learning_container,
+    .quiz_container,
+    .about_container {
+
+        width: calc(100% - 24px);
+
+        margin: 20px auto;
+
+        padding: 18px;
+
+        border-radius: 18px;
+    }
+
+
+    /* Section titles */
+
+    .sub_title {
+
+        font-size: 25px;
+
+        margin-bottom: 20px;
+
+        padding-left: 12px;
+    }
+
+
+    /* Practice */
+
+    .previous_years {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .py_link {
+
+        width: 100%;
+
+        max-width: 350px;
+
+        min-height: 120px;
+    }
+
+
+    /* General Studies */
+
+    .gkgs {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .gkgs_link {
+
+        height: 150px;
+
+        width: 100%;
+    }
+
+
+    /* Science */
+
+    .sci {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .sci_link {
+
+        height: 150px;
+
+        width: 100%;
+    }
+
+
+    /* Static GK */
+
+    .stgk_link {
+
+        width: 100%;
+
+        max-width: 350px;
+
+        height: 150px;
+    }
+
+
+    /* English */
+
+    .english {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 15px;
+    }
+
+    .english_part {
+
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+    .english_link {
+
+        height: 150px;
+
+        width: 100%;
+    }
+
+
+    /* Current Affairs */
+
+    .section_heading {
+
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+    .ca_badge,
+    .daily_date_badge {
+
+        align-self: flex-start;
+    }
+
+
+    /* Daily Learning */
+
+    .learning_category {
+
+        padding: 16px;
+    }
+
+    .learning_category_title h3 {
+
+        font-size: 18px;
+    }
+
+    .learning_item {
+
+        padding: 15px;
+    }
+
+
+    /* Quiz */
+
+    .quiz_tabs {
+
+        flex-direction: column;
+    }
+
+    .quiz_tab {
+
+        width: 100%;
+    }
+
+    .quiz_options {
+
+        grid-template-columns: 1fr;
+    }
+
+    .quiz_question {
+
+        padding: 18px;
+    }
+
+    .quiz_submit {
+
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+    .quiz_score {
+
+        font-size: 18px;
+    }
+
+
+    /* About */
+
+    .about_content {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    /* Footer */
+
+    .footer_content {
+
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        padding: 40px 0;
+    }
+
+}
+
+
+/* =====================================================
+SMALL PHONES
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .nav_logo a {
+
+        font-size: 22px;
+    }
+
+    .title h1 {
+
+        font-size: 31px;
+    }
+
+    .brand_text p {
+
+        font-size: 14px;
+    }
+
+    .title img {
+
+        width: 80px;
+
+        height: 68px;
+    }
+
+    .test_container,
+    .gkgs_container,
+    .science_container,
+    .staticgk_container,
+    .english_container,
+    .current_affairs_container,
+    .daily_learning_container,
+    .quiz_container,
+    .about_container {
+
+        padding: 15px;
+    }
+
+    .sub_title {
+
+        font-size: 23px;
+    }
+
+    .gkgs_link,
+    .sci_link,
+    .english_link {
+
+        height: 135px;
+    }
+
+    .gkgs_link h3,
+    .sci_link h3,
+    .english_link h3,
+    .stgk_link h3 {
+
+        font-size: 21px;
+    }
+
+    .current_affair {
+
+        padding: 18px;
+    }
+
+    .learning_category_title {
+
+        align-items: flex-start;
+    }
+
+    .learning_icon {
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 20px;
+    }
+
+}
+
+/* =====================================================
+CURRENT AFFAIRS CONTROLS
+===================================================== */
+
+.ca_controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin: 5px 0 22px;
+
+    flex-wrap: wrap;
+}
+
+.ca_control_btn {
+
+    border: 1px solid #cbd5e1;
+
+    background: white;
+
+    color: #334155;
+
+    padding: 11px 17px;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ca_control_btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #2563eb;
+
+    background: #eff6ff;
+}
+
+.ca_control_btn.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    border-color: #2563eb;
+}
+
+
+/* =====================================================
+CURRENT AFFAIR SERIAL NUMBER
+===================================================== */
+
+.ca_item_header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+.ca_serial {
+
+    min-width: 32px;
+    height: 32px;
+
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+CURRENT AFFAIRS LINK
+===================================================== */
+
+.ca_link {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 13px;
+
+    padding: 8px 13px;
+
+    border-radius: 9px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    color: #1d4ed8;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.ca_link:hover {
+
+    background: #dbeafe;
+
+    border-color: #2563eb;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+CURRENT AFFAIRS DATE GROUP
+===================================================== */
+
+.ca_day_heading {
+
+    margin: 10px 0 15px;
+
+    padding: 12px 15px;
+
+    border-radius: 12px;
+
+    background: #f1f5f9;
+
+    border: 1px solid #e2e8f0;
+
+    color: #1e3a8a;
+
+    font-size: 16px;
+
+    font-weight: 800;
+}
+
+
+/* =====================================================
+WEEKLY QUIZ TAB
+===================================================== */
+
+.weekly_ca_tab {
+
+    border-color: #c7d2fe;
+}
+
+
+/* =====================================================
+CONTACT
+===================================================== */
+
+.contact_links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 14px;
+}
+
+.contact_links a {
+
+    display: block;
+
+    padding: 10px 12px;
+
+    border-radius: 10px;
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    color: #1d4ed8;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.contact_links a:hover {
+
+    background: #eff6ff;
+
+    border-color: #93c5fd;
+
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+WEEKLY QUIZ NOTICE
+===================================================== */
+
+.weekly_quiz_notice {
+
+    margin-bottom: 20px;
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    color: #1e40af;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    text-align: center;
+}
+
+
+/* =====================================================
+MOBILE CURRENT AFFAIRS
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .ca_controls {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .ca_control_btn {
+
+        width: 100%;
+    }
+
+    .ca_item_header {
+
+        align-items: flex-start;
+    }
+
+    .ca_serial {
+
+        min-width: 29px;
+        height: 29px;
+
+        font-size: 12px;
+    }
+
+    .ca_link {
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+}
